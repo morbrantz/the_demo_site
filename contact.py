@@ -51,6 +51,11 @@ class Home_page(unittest.TestCase):
         else:
             print("The message does not appear on the page")
 
+    def new_button(self):
+        a_button = WebDriverWait(self.driver_setup, 10).until(
+            EC.visibility_of_element_located(
+                (By.XPATH, '//*[@id="menu-item-22"]/a/span[2]')))
+        a_button.click()
     def tearDown(self) -> None:
         time.sleep(5)
         self.driver_setup.quit()
